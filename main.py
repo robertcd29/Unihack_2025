@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 # Load a model
-model = YOLO("C:/Unihack2025/ObDetector/venv/runs/detect/trainMacheta2/weights/best.pt")  # build a new model from scratch
+model = YOLO("C:/Unihack2025/ObDetector/venv/runs/detect/trainFaraLateral/weights/best.pt")  # build a new model from scratch
 
 # Use the model
 results = model.train(data="config.yaml", epochs=150)  # train the model
