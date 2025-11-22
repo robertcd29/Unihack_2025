@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaugă Parcare - ParkIT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="script_login_to_add.js"></script>
+    <link rel="stylesheet" href="style_add_parking.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-section">
+                <span class="brand-text">ParkIt - Admin Panel</span>
+            </div>
+            <div>
+                <a href="main.html" class="back-btn" id="backBtn">← Înapoi la hartă</a>
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <h1 class="form-title">Adaugă o parcare nouă</h1>
+            <p class="form-subtitle">Completează formularul pentru a publica propria ta parcare pe platformă</p>
+
+            <form id="parkingForm">
+                <div class="form-group">
+                    <label class="form-label" for="parkingName">Nume Parcare *</label>
+                    <input type="text" id="parkingName" class="form-input" placeholder="Ex: Parcare Bega Central" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Tip Parcare *</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px;">
+                        <button type="button" class="parking-type-btn active" id="typeNormal" data-type="0">
+                            Parcare normală
+                        </button>
+                        <button type="button" class="parking-type-btn" id="typeStreet" data-type="1">
+                           Parcare pe stradă
+                        </button>
+                        <button type="button" class="parking-type-btn" id="typeMultilevel" data-type="2">
+                            Parcare multilevel
+                        </button>
+                        <button type="button" class="parking-type-btn" id="typeUnderground" data-type="3">
+                            Parcare subterană
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label" for="totalSpots">Total Locuri Disponibile *</label>
+                        <input type="number" id="totalSpots" class="form-input" placeholder="Ex: 50" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="pricing">Tarif (RON/oră) *</label>
+                        <input type="number" id="pricing" class="form-input" placeholder="Ex: 5" min="0" step="any" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="schedule">Program *</label>
+                    <input type="text" id="schedule" class="form-input" placeholder="Ex: 08:00 - 20:00 / Non-stop" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="description">Descriere</label>
+                    <textarea id="description" class="form-textarea" placeholder="Adaugă o descriere pentru parcare..."></textarea>
+                    <p class="help-text">Oferă detalii despre facilități, acces, etc.</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Facilități disponibile</label>
+                    <div class="facilities-checkboxes">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="hasSurveillance">
+                            <span class="checkbox-label">📹 Parcare supravegheată</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="hasDisabledAccess">
+                            <span class="checkbox-label">♿ Acces persoane dizabilități</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="hasEvCharging">
+                            <span class="checkbox-label">🔌 Stații încărcare EV</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="coordinates-section">
+                    <div class="coordinates-header">
+                        <h3 class="coordinates-title">Coordonate Zonă Parcare</h3>
+                        <button type="button" class="add-coordinate-btn" id="addCoordinateBtn">
+                            + Adaugă Punct
+                        </button>
+                    </div>
+                    <p class="help-text" id="coordinatesHelpText" style="margin-bottom: 15px;">
+                        Adaugă minim 3 puncte pentru a delimita zona de parcare. Poți găsi coordonatele pe Google Maps.
+                    </p>
+                    <div class="coordinates-list" id="coordinatesList"></div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Publică Parcarea
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="success-message" id="successMessage">
+        Parcarea a fost adăugată cu succes!
+    </div>
+
+    <script src="script_add_parking_db.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - ParkIT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_admin_login.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="logo-section">
+            <span class="brand-text">ParkIt</span>
+        </div>
+
+        <h1 class="login-title">Admin Login</h1>
+        <p class="login-subtitle">Autentifică-te pentru a accesa panoul de administrare</p>
+
+        <div class="error-message" id="errorMessage">
+            ❌ Utilizator sau parolă incorecte!
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label class="form-label" for="username">Utilizator</label>
+                <input type="text" 
+                       id="username" 
+                       class="form-input" 
+                       placeholder="Introdu numele de utilizator" 
+                       required
+                       autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password">Parolă</label>
+                <div class="password-container">
+                    <input type="password" 
+                        id="password" 
+                        class="form-input password-input"
+                        placeholder="Introdu parola" 
+                        required
+                        autocomplete="current-password">
+
+                    <button type="button" class="toggle-password" id="togglePassword">
+                        Show
+                    </button>
+                </div>
+            </div>
+
+            <div class="remember-forgot">
+                <label class="remember-me">
+                    <input type="checkbox" id="rememberMe">
+                    <span>Ține-mă minte</span>
+                </label>
+            </div>
+
+            <button type="submit" class="login-btn" id="loginBtn">
+                Autentificare
+            </button>
+        </form>
+
+        <div class="back-link">
+            <a href="main.html">← Înapoi la pagina principală</a>
+        </div>
+
+    </div>
+
+    <script src="script_admin_login.js"></script>
+</body>
+</html>
